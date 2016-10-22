@@ -34,7 +34,7 @@ void reflex()
 			default:
 				break;
 		}
-		key=checkKey();
+		key=checkKey(); 
 		lcdGotoxy(20,115);
 		lcdColor(0,0);
 		if (key == keyList[arrowNr])
