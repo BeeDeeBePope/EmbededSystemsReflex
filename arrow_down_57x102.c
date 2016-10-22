@@ -1,3 +1,5 @@
+#include "arrows.h"
+
 /*
  * First element is width of image
  * Second element is height of image
