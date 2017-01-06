@@ -132,7 +132,7 @@ static void proc1(void* arg) {
 
   drawMenu();
   
-  while(true)
+  while(TRUE)
   {
     tU8 anyKey;
     static tU8 i = 0;

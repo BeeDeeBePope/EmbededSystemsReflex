@@ -1,0 +1,1 @@
+powershell run readOutput.ps1

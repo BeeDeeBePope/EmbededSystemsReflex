@@ -7,7 +7,7 @@
 ##########################################################
 
 # Name of target (executable program or library) 
-NAME      = sudoku_lpc2104_color_lcd_v1.9
+NAME      = Reflex
 
 # Link program to RAM or ROM (possible values for LD_RAMROM is RAM or ROM,
 # if not specified = ROM)
@@ -54,22 +54,19 @@ CSRCS   = main.c               \
           lcd.c                \
           key.c                \
           select.c             \
-          uart.c               \
           eeprom.c             \
           i2c.c                \
           hw.c                 \
-	  arrows.c
+          arrows.c
 
 # List assembler source files here
 ASRCS   = 
 
 # List subdirectories to recursively invoke make in 
-SUBDIRS = startup \
-          irq_code
+SUBDIRS = startup 
 
 # List additional libraries to link with
 LIBS    = startup/libea_startup_thumb.a \
-          irq_code/irqUart.a \
           gcc_files/libm.a \
           pre_emptive_os/pre_emptive_os.a
 

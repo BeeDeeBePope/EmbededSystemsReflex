@@ -12,12 +12,30 @@ void reflex()
   tU8 arrowToShow;
   tU8 key = KEY_NOTHING;
   tU8 keyList [] = {KEY_NOTHING, KEY_UP, KEY_RIGHT, KEY_DOWN, KEY_LEFT, KEY_CENTER};
+  tS32 t = 0;
+  lcdClrscr();
+  char myTime [20];
   do
   {
     key = KEY_NOTHING;
-    lcdColor(0,0);
+	lcdGotoxy(60,60);
+    lcdColor(0x00,0xfd);
+	lcdPuts("3");
+	osSleep(100);
+	lcdClrscr();
+	
+	lcdGotoxy(60,60);
+	lcdPuts("2");
+	osSleep(100);
+	lcdClrscr();
+	
+	lcdGotoxy(60,60);
+	lcdPuts("1");
+	osSleep(100);
+	
+	lcdGotoxy(0,0);
+	lcdColor(0xff,0xfd);
     lcdClrscr();
-
     arrowToShow = rand()%4 + 1;
     switch(arrowToShow)
     {
@@ -31,23 +49,24 @@ void reflex()
               break;
       default: break;
     }
-    //wlacz timer
+    t = ms;
     while(key == KEY_NOTHING)
     {
       key = checkKey();
     }
-    //wylacz timer
-    lcdGotoxy(20,115);
+    t = ms - t;
+    lcdGotoxy(20,60);
     lcdColor(0x00,0xfd);
+	lcdClrscr();
     if (key == keyList[arrowToShow])
     {
-      lcdPuts("AWESOME!"); // wyswietl czas
-      osSleep(100);
+      lcdPuts("AWESOME!");
+	  sprintf(myTime,"%d",t);
+	  lcdPuts(myTime);
     }
     else if (key != KEY_CENTER)
     {
       lcdPuts("TRY AGAIN");
-      osSleep(100);
     }
   } while (key != KEY_CENTER);
 }
